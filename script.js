@@ -1,14 +1,18 @@
 const counter = document.getElementById("counter");
 const bar = document.getElementById("bar");
 
+const startYear = new Date('01/01/2023')
 const nextYear = new Date("01/01/2024");
 const dateToday = new Date();
 const milisegundos = 24 * 60 * 60 * 1000;
-let totalTime = Math.abs(nextYear.getTime() - dateToday.getTime());
-let days = Math.round(totalTime / milisegundos);
+let totalTimeEnd = Math.abs(nextYear.getTime() - dateToday.getTime());
+let totalTimeStart = Math.abs(startYear.getTime() - dateToday.getTime());
+let daysToFinish = Math.round(totalTimeEnd / milisegundos);
+let daysElapsed = Math.round(totalTimeStart / milisegundos);
+
 
 const yeardays = 365;
-let advance = Math.round((days * 100) / yeardays);
+let advance = Math.round((daysElapsed * 100) / yeardays);
 
 
 function showInfo() {
@@ -30,7 +34,7 @@ function showInfo() {
     countOne++;
     counter.textContent = `${countOne}`;
 
-    if (countOne == days) {
+    if (countOne == daysToFinish) {
       clearInterval(time);
     }
   }, 17);
