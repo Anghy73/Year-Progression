@@ -1,45 +1,44 @@
 const counter = document.getElementById("counter");
 const bar = document.getElementById("bar");
 
-const startYear = new Date('01/01/2023')
+const startYear = new Date("01/01/2023");
 const nextYear = new Date("01/01/2024");
 const dateToday = new Date();
 const milisegundos = 24 * 60 * 60 * 1000;
+
 let totalTimeEnd = Math.abs(nextYear.getTime() - dateToday.getTime());
 let totalTimeStart = Math.abs(startYear.getTime() - dateToday.getTime());
 let daysToFinish = Math.round(totalTimeEnd / milisegundos);
 let daysElapsed = Math.round(totalTimeStart / milisegundos);
 
-
 const yeardays = 365;
 let advance = Math.round((daysElapsed * 100) / yeardays);
 
+bar.setAttribute("data-target", String(advance));
+let barValue = bar.getAttribute("data-target");
 
 function showInfo() {
-  let countOne = 0;
-  let countTwo = 0;
-
-  const progress = setInterval(() => {
-    countTwo++
-
-    bar.textContent = `${countTwo}%`;
-    bar.style.width = `${countTwo}%`
-
-    if (countTwo == advance) {
-      clearInterval(progress)
+  const interval = daysToFinish / 100;
+  const intervalPro = barValue / 100;
+  function updateInfo() {
+    const value = Number(counter.innerHTML);
+    const valueBar = Number(bar.innerHTML);
+    if (value < daysToFinish) {
+      counter.innerHTML = Math.round(value + interval);
+      setTimeout(() => {
+        updateInfo();
+      }, 30);
     }
-  }, 60);
+    if (valueBar < advance) {
+      bar.innerHTML = `${Math.round(valueBar + intervalPro)}`;
+      bar.style.width = `${Number(bar.innerHTML)}%`;
 
-  const time = setInterval(() => {
-    countOne++;
-    counter.textContent = `${countOne}`;
-
-    if (countOne == daysToFinish) {
-      clearInterval(time);
+      setTimeout(() => {
+        updateInfo();
+      }, 1000);
     }
-  }, 17);
+  }
+  updateInfo();
 }
 
 document.addEventListener("DOMContentLoaded", showInfo);
-
-// TODO: Crear un crud para las metas

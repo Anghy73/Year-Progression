@@ -26,7 +26,7 @@ html {
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  padding: 0 10%;
+  padding: 0 1rem;
   background-color: var(--secondary-color);
 }
 
@@ -46,12 +46,14 @@ html {
 }
 
 .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem 0;
+  display: grid;
+  grid-template-areas: 
+  "days goals"
+  "progres progres";
+  gap: 3rem 5rem;
   width: 100%;
+  max-width: 1200px;
+  padding: 5rem;
 }
 
 .container__days {
@@ -59,11 +61,8 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 600px;
-  min-width: 300px;
-  min-height: 250px;
-  padding: 3rem 2rem;
+  grid-area: days;
+  padding: 5rem;
   border: 3px solid var(--border-color);
   border-radius: 20px;
   text-align: center;
@@ -87,12 +86,8 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 600px;
-  min-width: 300px;
-  min-height: 250px;
-  max-height: 200px;
-  padding: 3rem 2rem;
+  grid-area: goals;
+  padding: 5rem;
   border: 3px solid var(--border-color);
   border-radius: 20px;
   text-align: center;
@@ -132,8 +127,8 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  grid-area: progres;
   width: 100%;
-  min-width: 300px;
   min-height: 250px;
   padding: 3rem;
   border: 3px solid var(--border-color);
@@ -170,32 +165,44 @@ html {
   font-size: 2rem;
 }
 
-@media (max-width: 1360px) {
-  .main {
-    margin: 3rem 0;
-  }
-
-  .container {
-    gap: 5rem 0;
-  }
-
-  .container__days {
-    max-width: none;
-  }
-
-  .container__goals {
-    max-width: none;
-    min-height: 350px;
-  }
-
-  .container__goals > a {
-    right: 50%;
-    transform: translateX(50%);
-  }
+.barPorcentaje {
+  position: absolute;
+  left: 50%;
+  margin-left: 1.5rem;
+  font-size: 1.8rem;
 }
 
-@media (max-width: 320px) {
-  .body {
-    padding: 2%;
+/* Progression */
+
+.goals__main {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.goals__main > a {
+  position: absolute;
+    bottom: 15px;
+    right: 20px;
+    padding: 1rem 2rem;
+    border: 1px solid #00576d;
+    border-radius: 50px;
+    font-size: 2rem;
+    text-decoration: none;
+    transition: border 300ms;
+}
+
+
+h1 {
+  text-align: center;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    grid-template-areas:
+    "days"
+    "goals"
+    "progres";
   }
 }
