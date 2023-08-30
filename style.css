@@ -42,10 +42,10 @@ html {
 .main__title {
   color: var(--white-color);
   font-size: 4.5rem;
-  margin: 5rem 0;
+  margin: 5rem 0 0;
 }
 
-.container {
+.contain {
   display: grid;
   grid-template-areas: 
   "days goals"
@@ -56,7 +56,7 @@ html {
   padding: 5rem;
 }
 
-.container__days {
+.contain__days {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -68,19 +68,19 @@ html {
   text-align: center;
 }
 
-.container__days > p {
+.contain__days > p {
   font-size: 2.5rem;
   font-weight: 400;
   margin-bottom: 5rem;
 }
 
-.container__days > span {
+.contain__days > span {
   color: var(--primary-color);
   font-size: 3rem;
   font-weight: 500;
 }
 
-.container__goals {
+.contain__goals {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -93,19 +93,19 @@ html {
   text-align: center;
 }
 
-.container__goals > p {
+.contain__goals > p {
   font-size: 2.5rem;
   font-weight: 400;
   margin-bottom: 5rem;
 }
 
-.container__goals > span {
+.contain__goals > span {
   color: var(--primary-color);
   font-size: 3rem;
   font-weight: 500;
 }
 
-.container__goals > a {
+.contain__goals > a {
   position: absolute;
   bottom: 15px;
   right: 20px;
@@ -118,11 +118,11 @@ html {
   transition: border 300ms;
 }
 
-.container__goals > a:hover {
+.contain__goals > a:hover {
   border-color: var(--border-color);
 }
 
-.container__progression {
+.contain__progression {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -136,13 +136,13 @@ html {
   text-align: center;
 }
 
-.container__progression > p {
+.contain__progression > p {
   font-size: 2.5rem;
   font-weight: 400;
   margin-bottom: 5rem;
 }
 
-.container__bar {
+.contain__bar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -172,34 +172,83 @@ html {
   font-size: 1.8rem;
 }
 
-/* Progression */
-
-.goals__main {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  min-height: 100vh;
-}
-
-.goals__main > a {
-  position: absolute;
-    bottom: 15px;
-    right: 20px;
-    padding: 1rem 2rem;
-    border: 1px solid #00576d;
-    border-radius: 50px;
-    font-size: 2rem;
-    text-decoration: none;
-    transition: border 300ms;
-}
-
-
-h1 {
+/* Goals */
+.goals__body {
   text-align: center;
 }
 
+.goals__body  > h1 {
+  margin-top: 2rem;
+  font-size: 3.5rem;
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+  padding: 2rem;
+}
+
+input[type="text"] {
+  font-size: 2rem;
+  padding: 2.5rem;
+}
+
+input[type="submit"] {
+  font-size: 2rem;
+  height: auto !important;
+}
+
+.list__content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem 1.5rem 3.5rem;
+  border-radius: 3px;
+  background-color: rgba(16, 149, 193, 0.25);
+}
+
+.list__i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.list__i i:nth-child(1):hover {
+  color: greenyellow;
+}
+
+.list__i i:nth-child(2):hover {
+  color: red;
+}
+
+.list__star {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.list__star:hover {
+  color: yellow;
+}
+
+.index {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+
 @media (max-width: 1000px) {
-  .container {
+  .contain {
     grid-template-areas:
     "days"
     "goals"

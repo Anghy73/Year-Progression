@@ -3,13 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fuck that shit</title>
+  <title>Progression Page</title>
+  <script src="https://kit.fontawesome.com/c039a348ca.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
   <link rel="stylesheet" href="style.css">
+  <script src="goals.js" defer></script>
 </head>
-<body>
-  <div class="goals__main">
-    <h1>Goals</h1>
-    <a href="index.html">Progression</a>
+<body class="goals__body">
+  <h1>Goals List</h1>
+  <div class="grid">
+    <div class="container">
+      <form id="form">
+        <input type="text" placeholder="Add a Goal 🔥">
+        <input type="submit" value="Save">
+      </form>
+    </div>
+    <div class="list container">
+    </div>
   </div>
+  <a class="index outline" href="index.html" role="button">Progression</a>
+  <template>
+    <div class="list__content">
+      <p>Tarea #1</p>
+      <p>Date</p>
+      <div class="list__i">
+        <i class="fa-solid fa-check"></i>
+        <i class="fa-solid fa-x"></i>
+      </div>
+      <i class="list__star fa-solid fa-star"></i>
+    </div>
+  </template>
 </body>
 </html>
