@@ -106,9 +106,6 @@ html {
 }
 
 .contain__goals > a {
-  position: absolute;
-  bottom: 15px;
-  right: 20px;
   padding: 1rem 2rem;
   border: 1px solid #00576d;
   border-radius: 50px;
@@ -187,7 +184,7 @@ p {
 }
 
 .container {
-  padding: 2rem;
+  /* padding: 2rem; */
 }
 
 input[type="text"] {
@@ -237,6 +234,9 @@ input[type="submit"] {
 }
 
 .list__i i:nth-child(2):hover {
+  color: cyan;
+}
+.list__i i:nth-child(3):hover {
   color: red;
 }
 
@@ -259,6 +259,10 @@ input[type="submit"] {
   padding: 1rem 2rem;
   border-radius: 5px;
   font-size: 1.2rem;
+}
+
+.star {
+  color: yellow;
 }
 
 @media (max-width: 1000px) {
