@@ -22,8 +22,18 @@ const months = [
 const date = new Date();
 const year = date.getFullYear();
 
-const goals = {};
+let goals = {};
 const starGoal = {};
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  if (localStorage.getItem('goals')) {
+    goals = JSON.parse(localStorage.getItem('goals'))
+  }
+
+  paintGoal()
+})
 
 list.addEventListener("click", (e) => {
   btnAction(e);
@@ -59,6 +69,9 @@ const createGoal = (e) => {
 };
 
 const paintGoal = () => {
+
+  localStorage.setItem('goals', JSON.stringify(goals))
+
   list.innerHTML = "";
 
   Object.values(goals).forEach((goal) => {
